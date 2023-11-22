@@ -1,0 +1,24 @@
+name: bootstrap
+
+on: [push, pull_request]
+
+jobs: 
+  bootstrap: 
+    runs-on: ubuntu-latest 
+    name: bootstrap 
+    steps: 
+      - name: Check out source repository 
+        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0 
+      - name: Set up Python environment 
+        uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4.7.0 
+        with: 
+          python-version: "3.9" 
+      - name: Install sumologic/pandas 
+        run: pip install sumologic-sdk==0.1.13 pandas
+      - name: create markdown file 
+        run: | 
+          echo "first_name,last_name,age" > test-gen.csv; \
+          echo "John,Wick,57" >> test-gen.csv
+          cat test-gen.csv > $GITHUB_WORKSPACE/script/FER.md 
+          rm test-gen.csv 
+          ls -R $GITHUB_WORKSPACE
