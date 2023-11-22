@@ -1,2 +1,3 @@
-first_name,last_name,age
-John,Wick,57
+,col1,col2
+0,1,3
+1,2,4
