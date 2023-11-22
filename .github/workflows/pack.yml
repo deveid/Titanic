@@ -22,6 +22,18 @@ jobs:
           cat test-gen.csv > $GITHUB_WORKSPACE/script/FER.md 
           rm test-gen.csv 
           ls -R $GITHUB_WORKSPACE
+  docume:
+    runs-on: ubuntu-latest
+    environment:                                                                                                                      
+      name: github-pages 
+      url: ${{ steps.deployment.outputs.page_url }} 
+    steps: 
+      - name: Download pages artifact 
+        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2 
+        with: 
+          name: pages 
+          path: pages/public
+        
      # deploy to github pages 
       - name: Setup Github Pages 
         uses: actions/configure-pages@f156874f8191504dae5b037505266ed5dda6c382 # v3.0.6 
