@@ -14,7 +14,7 @@ jobs:
         with: 
           python-version: "3.9" 
       - name: Install sumologic/pandas 
-        run: pip install sumologic-sdk==0.1.13 pandas
+        run: pip install sumologic-sdk==0.1.13 pandas tabulate
       - name: Run python file on path 
         run: python3 ./script/test.py
       - name: create markdown file 
