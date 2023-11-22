@@ -15,12 +15,12 @@ jobs:
           python-version: "3.9" 
       - name: Install sumologic/pandas 
         run: pip install sumologic-sdk==0.1.13 pandas
+      - name: Run python file on path 
+        run: python3 ./script/test.py
       - name: create markdown file 
         run: | 
-          echo "first_name,last_name,age" > test-gen.csv; \
-          echo "John,Wick,57" >> test-gen.csv
-          cat test-gen.csv > $GITHUB_WORKSPACE/script/FER.md 
-          rm test-gen.csv 
+          cat fer.csv > $GITHUB_WORKSPACE/script/FER.md 
+          rm fer.csv 
           ls -R $GITHUB_WORKSPACE
       - uses: stefanzweifel/git-auto-commit-action@v5
   #docume:
