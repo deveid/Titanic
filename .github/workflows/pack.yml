@@ -22,7 +22,10 @@ jobs:
           cat fer.md > $GITHUB_WORKSPACE/script/FER.md 
           rm fer.md 
           ls -R $GITHUB_WORKSPACE
-      - uses: stefanzweifel/git-auto-commit-action@v5
+          git add $GITHUB_WORKSPACE/script/FER.md
+          git commit -m 'refreshed md'
+          git push
+      #- uses: stefanzweifel/git-auto-commit-action@v5
   # docume:
   #  needs: [bootstrap]
   #  runs-on: ubuntu-latest
