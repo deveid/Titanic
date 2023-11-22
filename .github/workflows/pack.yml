@@ -24,7 +24,6 @@ jobs:
           ls -R $GITHUB_WORKSPACE
           git add $GITHUB_WORKSPACE/script/FER.md
           git commit -m 'refreshed md'
-          git push
       #- uses: stefanzweifel/git-auto-commit-action@v5
   # docume:
   #  needs: [bootstrap]
