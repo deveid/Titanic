@@ -22,25 +22,26 @@ jobs:
           cat test-gen.csv > $GITHUB_WORKSPACE/script/FER.md 
           rm test-gen.csv 
           ls -R $GITHUB_WORKSPACE
-  docume:
-    runs-on: ubuntu-latest
-    environment:                                                                                                                      
-      name: github-pages 
-      url: ${{ steps.deployment.outputs.page_url }} 
-    steps: 
-      - name: Download pages artifact 
-        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2 
-        with: 
-          name: pages 
-          path: pages/public
-        
+      - uses: stefanzweifel/git-auto-commit-action@v5
+  #docume:
+  #  runs-on: ubuntu-latest
+  #  environment:                                                                                                                      
+  #    name: github-pages 
+  #    url: ${{ steps.deployment.outputs.page_url }} 
+  #  steps: 
+  #    - name: Download pages artifact 
+  #      uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2 
+  #      with: 
+  #        name: pages 
+  #        path: pages/public
+  #      
      # deploy to github pages 
-      - name: Setup Github Pages 
-        uses: actions/configure-pages@f156874f8191504dae5b037505266ed5dda6c382 # v3.0.6 
-      - name: Upload documentation artifact 
-        uses: actions/upload-pages-artifact@a753861a5debcf57bf8b404356158c8e1e33150c # v2.0.0 
-        with: 
-          path: pages/public 
-      - name: Deploy to GitHub Pages 
-        id: deployment 
-        uses: actions/deploy-pages@9dbe3824824f8a1377b8e298bafde1a50ede43e5 # v2.0.4
+  #    - name: Setup Github Pages 
+  #      uses: actions/configure-pages@f156874f8191504dae5b037505266ed5dda6c382 # v3.0.6 
+  #    - name: Upload documentation artifact 
+  #      uses: actions/upload-pages-artifact@a753861a5debcf57bf8b404356158c8e1e33150c # v2.0.0 
+  #      with: 
+  #        path: pages/public 
+  #    - name: Deploy to GitHub Pages 
+  #      id: deployment 
+  #      uses: actions/deploy-pages@9dbe3824824f8a1377b8e298bafde1a50ede43e5 # v2.0.4
