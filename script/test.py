@@ -1,6 +1,6 @@
 import pandas as pd
 
-class model(self):
+class model():
   def __init__(self):
     self.d = {'col1': [1, 2], 'col2': [3, 4]}
   
