@@ -34,7 +34,7 @@ jobs:
           git config user.name "test"
           git add $GITHUB_WORKSPACE/pages/FER.md
           git commit -m 'refreshed fields.md'
-          # git push origin
+          git push origin
   # build:
   #   runs-on: ubuntu-latest
   #   needs: bootstrap
