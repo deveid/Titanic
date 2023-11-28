@@ -13,6 +13,9 @@ jobs:
       id-token: write
     steps: 
       - name: Check out source repository 
+        with:
+          # checkout full tree
+          fetch-depth: 0
         uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0 
       - name: Set up Python environment 
         uses: actions/setup-python@61a6322f88396a6271a6ee3565807d608ecaddd1 # v4.7.0 
@@ -27,8 +30,10 @@ jobs:
           cat fer.md > $GITHUB_WORKSPACE/script/FER.md 
           rm fer.md 
           ls -R $GITHUB_WORKSPACE
-      #- uses: stefanzweifel/git-auto-commit-action@v5
-  
+          for commit in $(git rev-list ${{ github.event.before}}..${{ github.sha}}); do
+              git checkout $commit
+              echo "run test"
+          done
   build_pages:
     runs-on: ubuntu-latest
     permissions:
