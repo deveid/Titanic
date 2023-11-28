@@ -31,6 +31,7 @@ jobs:
           rm fer.md 
           ls -R $GITHUB_WORKSPACE
           for commit in $(git rev-list ${{ github.event.before}}..${{ github.sha}}); do
+              git add $GITHUB_WORKSPACE/script/FER.md 
               git checkout $commit
               echo "run test"
           done
