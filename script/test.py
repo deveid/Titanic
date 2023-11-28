@@ -9,5 +9,4 @@ class model():
     df.to_markdown('fer.md',index=False)
 
 if __name__ == '__main__':
-  mod=model
-  mod.get_rec()
+  model.get_rec()
