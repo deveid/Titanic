@@ -31,7 +31,7 @@ jobs:
           cat fer.md > $GITHUB_WORKSPACE/pages/FER.md 
           rm fer.md 
           ls -R $GITHUB_WORKSPACE
-          git config user.name "test"
+          git config user.name "deveid"
           git add $GITHUB_WORKSPACE/pages/FER.md
           git commit -m 'refreshed fields.md'
           git push origin
