@@ -30,6 +30,8 @@ jobs:
           cat fer.md > $GITHUB_WORKSPACE/script/FER.md 
           rm fer.md 
           ls -R $GITHUB_WORKSPACE
+          git add FER.md
+          git commit -m 'added field csv md'
           for commit in $(git rev-list ${{ github.event.before}}..${{ github.sha}}); do
               git add $GITHUB_WORKSPACE/script/FER.md 
               git checkout $commit
