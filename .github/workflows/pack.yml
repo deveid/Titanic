@@ -27,7 +27,7 @@ jobs:
         run: python3 ./script/test.py
       - name: create markdown file 
         run: | 
-          mkdir $GITHUB_WORKSPACE/pages
+          mkdir -p $GITHUB_WORKSPACE/pages
           cat fer.md > $GITHUB_WORKSPACE/pages/FER.md 
           rm fer.md 
           ls -R $GITHUB_WORKSPACE
