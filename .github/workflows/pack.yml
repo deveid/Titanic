@@ -28,9 +28,9 @@ jobs:
       - name: create markdown file 
         run: | 
           mkdir -p $GITHUB_WORKSPACE/pages
+          rm -f $GITHUB_WORKSPACE/pages/FER.md
           cat fer.md > $GITHUB_WORKSPACE/pages/FER.md
           rm -f fer.md
-          ls -R $GITHUB_WORKSPACE
           git config user.name "test"
           git add $GITHUB_WORKSPACE/pages/FER.md
           git commit --allow-empty -m 'refreshed fields.md'
