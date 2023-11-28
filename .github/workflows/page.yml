@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:  
   bootstrap:
-      uses: ./.github/workflows/pack.yml
+      uses: ".github/workflows/page.yml"
   build:
       runs-on: ubuntu-latest
       needs: [bootstrap]
