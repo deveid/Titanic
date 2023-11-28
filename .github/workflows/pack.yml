@@ -27,6 +27,7 @@ jobs:
         run: python3 ./script/test.py
       - name: create markdown file 
         run: | 
+          mkdir $GITHUB_WORKSPACE/pages
           cat fer.md > $GITHUB_WORKSPACE/pages/FER.md 
           rm fer.md 
           ls -R $GITHUB_WORKSPACE
@@ -66,18 +67,18 @@ jobs:
       # - name: Generate GitHub pages
       #   run: go run ./go/cmd/render/
 
-      # build site
-      - uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
-        with:
-          node-version: 16
-          cache: 'npm'
-          cache-dependency-path: 'pages/package-lock.json'
-      - name: Generate documentation
-        run: |
-          npm install
-          npm install -g postcss postcss-cli autoprefixer
-          hugo
-        working-directory: pages
+      # # build site
+      # - uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
+      #   with:
+      #     node-version: 16
+      #     cache: 'npm'
+      #     cache-dependency-path: 'pages/package-lock.json'
+      # - name: Generate documentation
+      #   run: |
+      #     npm install
+      #     npm install -g postcss postcss-cli autoprefixer
+      #     hugo
+      #   working-directory: pages
 
       - name: Upload pages artifact
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
