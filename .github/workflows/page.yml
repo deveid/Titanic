@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:  
   bootstrap:
-      uses: ".github/workflows/page.yml"
+      uses: ".github/workflows/page.yml@{SHA/TAG/BRANCH}"
   build:
       runs-on: ubuntu-latest
       needs: [bootstrap]
