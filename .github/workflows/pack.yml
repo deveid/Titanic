@@ -54,7 +54,7 @@ jobs:
           HUGO_VERSION: ${{ env.HUGO_VERSION }}
       - name: Install Hugo
         run: |
-          sudo dpkg -i hugo.deb
+          sudo apt install hugo
           hugo version
         working-directory: deb
 
