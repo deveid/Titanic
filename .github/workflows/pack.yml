@@ -31,6 +31,7 @@ jobs:
           cat fer.md > $GITHUB_WORKSPACE/pages/FER.md 
           rm fer.md 
           ls -R $GITHUB_WORKSPACE
+          git add $GITHUB_WORKSPACE/pages/FER.md
   build:
     runs-on: ubuntu-latest
     steps:
