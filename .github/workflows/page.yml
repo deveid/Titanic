@@ -34,6 +34,7 @@ jobs:
             sudo chmod -R a+w /usr/bin
             cd /usr/bin
             touch Gemfile
+            gem "jekyll", "~> 4.0"
             bundle install
             bundle exec jekyll build
         # - name: Build with Jekyll
