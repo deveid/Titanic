@@ -27,7 +27,7 @@ jobs:
   
         - name: Install Jekyll
           run: |
-            gem install jekyll bundler
+            gem install jekyll-4.0.0 bundler
   
         - name: Build Jekyll site
           run: |
