@@ -31,6 +31,7 @@ jobs:
   
         - name: Build Jekyll site
           run: |
+            gem update --system
             bundle install
             bundle exec jekyll build
         # - name: Build with Jekyll
