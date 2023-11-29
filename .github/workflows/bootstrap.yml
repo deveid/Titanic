@@ -1,7 +1,6 @@
 name: bootstrap
 
 on: [push, pull_request]
-
 jobs: 
   bootstrap: 
     runs-on: ubuntu-latest 
