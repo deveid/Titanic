@@ -2,8 +2,8 @@ name: deploy pages
 
 on:
     workflow_run:
-      workflows: ["bootstrap"]
-      branches: ["deveid-patch-1"]
+      workflows: [bootstrap]
+      branches: [deveid-patch-1]
       types:
         - completed
 
