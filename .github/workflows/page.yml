@@ -17,8 +17,7 @@ jobs:
           uses: actions/configure-pages@v3
         - name: Set up Ruby and dependencies
           run: |
-            sudo apt-
-            get update
+            sudo apt-get update
             sudo apt-get install -y ruby-full build-essential zlib1g-dev
             echo '# Install Ruby Gems to ~/gems' >> $GITHUB_ENV
             echo 'export GEM_HOME="$HOME/gems"' >> $GITHUB_ENV
