@@ -4,7 +4,6 @@ on:
   workflow_run:
       workflows: [bootstrap]
       types: [completed]
-      branches: [deveid-patch-1]
   # workflow_dispatch:
   # workflow_run:
   #   workflows: [bootstrap]
