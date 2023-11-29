@@ -2,7 +2,7 @@ import pandas as pd
 
 class model():
   def __init__(self):
-    self.d = {'col1': [1, 2], 'col2': [3, 4]}
+    self.d = {'col1': [1, 2], 'col2': [3, 4],'col3': [13, 43]}
   
   def get_rec(self) -> None:
     df = pd.DataFrame(data=self.d)
