@@ -19,8 +19,6 @@ jobs:
           run: |
             sudo apt-get update
             sudo apt-get install -y ruby-full build-essential zlib1g-dev
-            ls -R
-            gem
             export GEM_HOME="$HOME/gems >> $GITHUB_ENV
             export PATH="$HOME/gems/bin:$PATH" >> $GITHUB_ENV
             source $GITHUB_ENV
