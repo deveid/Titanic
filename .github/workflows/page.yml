@@ -1,9 +1,6 @@
 name: deploy pages
 
-on: 
-  workflow_run:
-      workflows: [bootstrap]
-      types: [completed]
+on: [pull_request]
   # workflow_dispatch:
   # workflow_run:
   #   workflows: [bootstrap]
