@@ -34,6 +34,7 @@ jobs:
           git config user.email "test"
           git add $GITHUB_WORKSPACE/pages/FER.md
           git commit --allow-empty -m 'refreshed fields.md'
+          git pull origin
           git push origin
   # build:
   #   runs-on: ubuntu-latest
