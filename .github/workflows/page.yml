@@ -34,9 +34,9 @@ jobs:
             sudo chmod -R a+w /usr/bin
             cd /usr/bin
             touch Gemfile
-            bundle add jekyll
+            bundle add jekyll 4.0.0
             bundle install
-            bundle exec jekyll build
+            bundle exec jekyll 4.0.0 build
         # - name: Build with Jekyll
         #   uses: actions/jekyll-build-pages@v1
         #   with:
