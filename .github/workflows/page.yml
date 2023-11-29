@@ -27,7 +27,7 @@ jobs:
   
         - name: Install Jekyll
           run: |
-            gem install jekyll-4.0.0 bundler
+            gem install jekyll bundler
   
         - name: Build Jekyll site
           run: |
@@ -36,7 +36,7 @@ jobs:
             touch Gemfile
             bundle add jekyll
             bundle install
-            bundle exec jekyll 4.0.0 build
+            bundle exec jekyll build --trace
         # - name: Build with Jekyll
         #   uses: actions/jekyll-build-pages@v1
         #   with:
