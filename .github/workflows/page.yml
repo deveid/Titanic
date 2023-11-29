@@ -1,10 +1,12 @@
 name: deploy pages
 
 on: 
-    workflow_run:
-      workflows: [bootstrap]
-      types:
-        - completed
+    repository_dispatch:
+        types:['bootstrap']
+    # workflow_run:
+    #   workflows: [bootstrap]
+    #   types:
+    #     - completed
 
 jobs:  
   build:
