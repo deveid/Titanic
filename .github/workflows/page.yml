@@ -19,8 +19,8 @@ jobs:
           run: |
             sudo apt-get update
             sudo apt-get install -y ruby-full build-essential zlib1g-dev
-            export GEM_HOME="$HOME/var/lib/gems/3.0.0 >> $GITHUB_ENV
-            export PATH="$HOME/var/lib/gems/3.0.0/bin:$PATH" >> $GITHUB_ENV
+            export GEM_HOME="/var/lib/gems/3.0.0 >> $GITHUB_ENV
+            export PATH="/var/lib/gems/3.0.0/bin:$PATH" >> $GITHUB_ENV
             source $GITHUB_ENV
   
         - name: Install Jekyll
