@@ -9,42 +9,64 @@ on: [pull_request]
 
 jobs:  
   build:
+      env:
+        HUGO_VERSION: 0.99.0
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
           uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
         - name: Setup Pages
           uses: actions/configure-pages@v3
-        - name: Set up Ruby and dependencies
+        - name: Install Hugo CLI
           run: |
-            sudo apt-get update
-            sudo apt-get install -y ruby-full build-essential zlib1g-dev
-            cd /var/lib
-            sudo chmod -R a+w gems/
-            # export GEM_HOME="/var/lib/gems/3.0.0/gems >> $GITHUB_ENV
-            # export PATH="/var/lib/gems/3.0.0/gems/bin:$PATH" >> $GITHUB_ENV
-            # #source $GITHUB_ENV
+            wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.deb \
+            && sudo dpkg -i ${{ runner.temp }}/hugo.deb          
+        - name: Setup Pages
+          id: pages
+          uses: actions/configure-pages@v2
+        - name: Build with Hugo
+          env:
+            # For maximum backward compatibility with Hugo modules
+            HUGO_ENVIRONMENT: production
+            HUGO_ENV: production
+          run: |
+            hugo \
+              --minify \
+              --baseURL "${{ steps.pages.outputs.base_url }}/"          
+        - name: Upload artifact
+          uses: actions/upload-pages-artifact@v1
+          with:
+            path: ./pages/public
+        # - name: Set up Ruby and dependencies
+        #   run: |
+        #     sudo apt-get update
+        #     sudo apt-get install -y ruby-full build-essential zlib1g-dev
+        #     cd /var/lib
+        #     sudo chmod -R a+w gems/
+        #     # export GEM_HOME="/var/lib/gems/3.0.0/gems >> $GITHUB_ENV
+        #     # export PATH="/var/lib/gems/3.0.0/gems/bin:$PATH" >> $GITHUB_ENV
+        #     # #source $GITHUB_ENV
   
-        - name: Install Jekyll
-          run: |
-            gem install jekyll -v 4.0.0
-            gem install bundler
+        # - name: Install Jekyll
+        #   run: |
+        #     gem install jekyll -v 4.0.0
+        #     gem install bundler
   
-        - name: Build Jekyll site
-          run: |
-            sudo chmod -R a+w /usr/bin
-            cd /usr/bin
-            touch Gemfile
-            bundle add jekyll
-            bundle install
-            bundle exec jekyll build --trace
+        # - name: Build Jekyll site
+        #   run: |
+        #     sudo chmod -R a+w /usr/bin
+        #     cd /usr/bin
+        #     touch Gemfile
+        #     bundle add jekyll
+        #     bundle install
+        #     bundle exec jekyll build --trace
         # - name: Build with Jekyll
         #   uses: actions/jekyll-build-pages@v1
         #   with:
         #     source: ./
         #     destination: ./_site
-        - name: Upload artifact
-          uses: actions/upload-pages-artifact@v2
+        # - name: Upload artifact
+        #   uses: actions/upload-pages-artifact@v2
   
     # Deployment job
   deploy:
