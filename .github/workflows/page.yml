@@ -1,12 +1,11 @@
 name: deploy pages
 
 on:
-    workflow_dispatch:
-    workflow_run:
-      workflows: [bootstrap]
-      branches: [deveid-patch-1]
-      types:
-        - completed
+  workflow_dispatch:
+  workflow_run:
+    workflows: [bootstrap]
+    types:
+      - completed
 
 jobs:  
   build:
