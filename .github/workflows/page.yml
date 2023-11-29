@@ -1,4 +1,4 @@
-name: bootstrap
+name: deploy pages
 
 on: 
     workflow_run:
