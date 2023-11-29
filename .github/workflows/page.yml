@@ -6,6 +6,7 @@ on:
     workflows: [bootstrap]
     types:
       - completed
+    branches: [deveid-patch-1]
 
 jobs:  
   build:
