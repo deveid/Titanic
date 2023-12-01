@@ -44,12 +44,12 @@ jobs:
         env:
           sumo_access_id: ${{ secrets.sumo_access_id }}
           sumo_access_token: ${{ secrets.sumo_access_token }}
-        run: python3 ./script/sumologic_model.py
+        run: python3 ./script/test.py
       - name: create markdown file
         run: |
           mkdir -p $GITHUB_WORKSPACE/pages/content/
-          rm -f $GITHUB_WORKSPACE/pages/sumologic_fields.md
-          cat sumologic_fields.md > $GITHUB_WORKSPACE/pages/content/index.md
+          rm -f $GITHUB_WORKSPACE/pages/fer.md
+          cat fer.md > $GITHUB_WORKSPACE/pages/content/index.md
           #rm -f sumologic_fields.md
           # git config user.name "test"
           # git config user.email "test"
