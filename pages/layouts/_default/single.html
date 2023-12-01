@@ -6,9 +6,12 @@
     <title>Sumologic Fields</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="stylesheet" href="{{ "css/bootstrap-table.css" | absURL }}">
     <script src='main.js'></script>
 </head>
     <body>
-        {{ .Inner | markdownify }}
+        {{< bootstrap-table table_class="table table-dark table-striped table-bordered" >}}
+            {{ .Content  }}
+        {{< /bootstrap-table >}}
     </body>
 </html>>
