@@ -10,8 +10,8 @@
     <script src='main.js'></script>
 </head>
     <body>
-        <table>
-            {{ .Inner }}
-        </table>
+        {{< bootstrap-table "table table-dark table-striped table-bordered" >}}
+            {{ .Content }}
+        {{< /bootstrap-table >}}
     </body>
 </html>
